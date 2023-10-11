@@ -12,10 +12,10 @@ def formatted(value):
 def dict_diff(dict1, dict2, no_key={None}):
     result = []
     for key in sorted(dict1 | dict2):
-        if (cond1 := dict1.get(key, no_key) == dict2.get(key, no_key)):
-            result.append((' ', key, formatted(dict1[key])))
-        if key in dict1 and not cond1:
+        if key in dict1:
             result.append(('-', key, formatted(dict1[key])))
-        if key in dict2 and not cond1:
+        if key in dict2:
             result.append(('+', key, formatted(dict2[key])))
+        if dict1.get(key, no_key) == dict2.get(key, no_key):
+            result = result[:-2] + [(' ', key, formatted(dict1[key]))]
     return result
