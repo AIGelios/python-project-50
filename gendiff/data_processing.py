@@ -16,6 +16,9 @@ def dict_diff(dict1, dict2, no_key={None}):
             result.append(('-', key, formatted(dict1[key])))
         if key in dict2:
             result.append(('+', key, formatted(dict2[key])))
-        if dict1.get(key, no_key) == dict2.get(key, no_key):
-            result = result[:-2] + [(' ', key, formatted(dict1[key]))]
+        old_value = dict1.get(key, no_key)
+        new_value = dict2.get(key, no_key)
+        if old_value == new_value:
+            del result[-2:]
+            result.append((' ', key, formatted(dict1[key])))
     return result
