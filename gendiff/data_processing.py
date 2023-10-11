@@ -14,11 +14,10 @@ def dict_diff(dict1, dict2, no_key={None}):
     for key in sorted(dict1 | dict2):
         old_value = dict1.get(key, no_key)
         new_value = dict2.get(key, no_key)
-        if old_value == new_value:
-            result.append((' ', key, formatted(new_value)))
-        else:
-            if key in dict1:
-                result.append(('-', key, formatted(old_value)))
-            if key in dict2:
-                result.append(('+', key, formatted(new_value)))
+        cond1 = old_value == new_value
+        cond2 = key in dict1 and not cond1
+        cond3 = key in dict2 and not cond1
+        result += [(' ', key, formatted(old_value))] if cond1 else []
+        result += [('-', key, formatted(old_value))] if cond2 else []
+        result += [('+', key, formatted(new_value))] if cond3 else []
     return result
