@@ -12,9 +12,6 @@ def formatted(value):
 def dict_diff(dict1, dict2, no_key={None}):
     result = []
     for key in sorted(dict1 | dict2):
-        '''cond1 = dict1.get(key, no_key) == dict2.get(key, no_key)
-        cond2 = key in dict1 and not cond1
-        cond3 = key in dict2 and not cond1'''
         if (cond1 := dict1.get(key, no_key) == dict2.get(key, no_key)):
             result.append((' ', key, formatted(dict1[key])))
         if key in dict1 and not cond1:
