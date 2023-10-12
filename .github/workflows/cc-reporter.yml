@@ -1,7 +1,7 @@
 name: cc-reporter
 
 on:
-  push
+  push:
     branches:
       - main
 jobs:
