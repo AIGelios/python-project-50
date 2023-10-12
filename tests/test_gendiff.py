@@ -1,4 +1,5 @@
 from gendiff.scripts.gendiff import generate_diff
+from subprocess import check_output
 # import gendiff.output_format.stylish as stylish
 
 
@@ -8,6 +9,7 @@ flat_yaml_1 = 'tests/fixtures/flat1.yaml'
 flat_yaml_2 = 'tests/fixtures/flat2.yml'
 dif_flat1_flat2_stylish = 'tests/fixtures/dif_flat1_flat2_stylish.txt'
 dif_flat2_flat1_stylish = 'tests/fixtures/dif_flat2_flat1_stylish.txt'
+help_output = 'tests/fixtures/help_output.txt'
 
 
 def test_generate_diff():
@@ -21,3 +23,22 @@ def test_generate_diff():
         dif_2_1 = file_2_1.read()
     assert generate_diff(flat_json_2, flat_json_1, 'stylish') == dif_2_1
     assert generate_diff(flat_yaml_2, flat_yaml_1, 'stylish') == dif_2_1
+
+
+def test_cli():
+    with open(help_output) as file:
+        sample = file.read()
+    output = check_output(['gendiff', '-h'], universal_newlines=True)
+    assert output == sample
+
+    with open(dif_flat1_flat2_stylish) as file:
+        sample = file.read() + '\n'
+    output = check_output(['gendiff', flat_json_1, flat_json_2],
+                          universal_newlines=True)
+    assert output == sample
+
+    with open(dif_flat2_flat1_stylish) as file:
+        sample = file.read() + '\n'
+    output = check_output(['gendiff', flat_yaml_2, flat_yaml_1,
+                           '-f', 'stylish'], universal_newlines=True)
+    assert output == sample

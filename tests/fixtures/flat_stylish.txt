@@ -1,0 +1,7 @@
+{
+    a: 1
+  - b: 1.5
+  + c: abc
+  - d: true
+  + d: false
+}

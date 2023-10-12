@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 from gendiff.file_parsing import get_data
 from gendiff.data_processing import dict_diff
-import gendiff.output_format.stylish as stylish
+from gendiff.output import stylish
 
 
 def get_arguments():
@@ -16,11 +16,13 @@ def get_arguments():
 
 
 def generate_diff(path_1, path_2, format):
-    format_module = {'stylish': stylish}[format]
+    make_output = {'stylish': stylish}.get(format)
+    if make_output is None:
+        raise Exception('ERROR: Unknown output format')
     data_1 = get_data(path_1)
     data_2 = get_data(path_2)
     diff = dict_diff(data_1, data_2)
-    return format_module.output(diff)
+    return make_output(diff)
 
 
 def main():
