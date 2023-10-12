@@ -5,7 +5,7 @@ lint:
 	poetry run flake8 gendiff
 
 check:
-	poetry run flake8 brain_games
+	poetry run flake8 gendiff
 	petry run pytest --cov
 
 install:
