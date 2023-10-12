@@ -6,7 +6,7 @@ lint:
 
 check:
 	poetry run flake8 gendiff
-	petry run pytest --cov
+	poetry run pytest --cov
 
 install:
 	poetry install
