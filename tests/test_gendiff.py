@@ -16,9 +16,10 @@ nested_json_2 = 'tests/fixtures/nested2.json'
 nested_yaml_1 = 'tests/fixtures/nested1.yml'
 nested_yaml_2 = 'tests/fixtures/nested2.yaml'
 dif_nes1_nes2_stylish = 'tests/fixtures/dif_nes1_nes2_stylish.txt'
+dif_nes1_nes2_plain = 'tests/fixtures/dif_nes1_nes2_plain.txt'
 
 
-
+# generate_diff function test
 def test_generate_diff():
     # flat json test
     with open(dif_flat1_flat2_stylish) as file:
@@ -30,10 +31,15 @@ def test_generate_diff():
         dif = file.read()
     assert generate_diff(flat_yaml_2, flat_yaml_1, 'stylish') == dif
 
-    # nested json and yaml test
+    # nested json and yaml test (stylish output)
     with open(dif_nes1_nes2_stylish) as file:
         dif = file.read()
     assert generate_diff(nested_json_1, nested_yaml_2, 'stylish') == dif
+
+    # nested json and yaml test (plain output)
+    with open(dif_nes1_nes2_plain) as file:
+        dif = file.read()
+    assert generate_diff(nested_yaml_1, nested_json_2, 'plain') == dif
 
 
 # main command line test
@@ -63,4 +69,11 @@ def test_cli():
         sample = file.read() + '\n'
     output = check_output(['gendiff', nested_json_1, nested_json_2],
                           universal_newlines=True)
+    assert output == sample
+
+    # nested json files output test
+    with open(dif_nes1_nes2_plain) as file:
+        sample = file.read() + '\n'
+    output = check_output(['gendiff', '-f', 'plain', nested_json_1, 
+                           nested_json_2], universal_newlines=True)
     assert output == sample

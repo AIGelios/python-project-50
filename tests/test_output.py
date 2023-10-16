@@ -1,4 +1,4 @@
-from gendiff.output import formatted, stylish
+from gendiff.output_formats.stylish import formatted, stylish
 from tests.test_data_processing import flat_diff, nested_diff
 
 
