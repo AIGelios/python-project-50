@@ -1,4 +1,5 @@
 from gendiff.output import formatted, stylish
+from tests.test_data_processing import flat_diff, nested_diff
 
 
 def test_formatted():
@@ -13,15 +14,14 @@ def test_formatted():
     except:
         pass
 
+flat_stylish = 'tests/fixtures/flat_stylish.txt'
+nested_stylish = 'tests/fixtures/nested_stylish.txt'
 
 def test_stylish():
-    no_value = {None}
-
-    changes = [{'key': 'a', 'old_value': 1, 'new_value': 1},
-               {'key': 'b', 'old_value': 1.5, 'new_value': no_value},
-               {'key': 'c', 'old_value': no_value, 'new_value': 'abc'},
-               {'key': 'd', 'old_value': True, 'new_value': False}]
-
-    with open('tests/fixtures/flat_stylish.txt') as file:
+    with open(flat_stylish) as file:
         example = file.read()
-    assert stylish(changes) ==  example
+    assert stylish(flat_diff) == example
+
+    with open(nested_stylish) as file:
+        example = file.read()
+    assert stylish(nested_diff) == example

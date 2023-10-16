@@ -15,7 +15,7 @@ def get_arguments():
     return parser.parse_args()
 
 
-def generate_diff(path_1, path_2, format):
+def generate_diff(path_1, path_2, format='stylish'):
     make_output = {'stylish': stylish}.get(format)
     if make_output is None:
         raise Exception('ERROR: Unknown output format')
