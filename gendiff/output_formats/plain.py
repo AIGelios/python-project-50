@@ -1,4 +1,4 @@
-from gendiff.output_formats.stylish import value_status
+from gendiff.data_processing import value_status
 
 
 def formatted(value):
@@ -14,7 +14,7 @@ def formatted(value):
         raise Exception('ERROR: Unsupported data type')
 
 
-def plain(dict_difference, prefix=''):
+def make_plain(dict_difference, prefix=''):
     result = ''
     for entry in dict_difference:
         key = entry['key']
@@ -33,5 +33,5 @@ def plain(dict_difference, prefix=''):
                 result += f"to {formatted(new_value)}\n"
             case 'unchanged':
                 if type(old_value) is list:
-                    result += plain(old_value, prefix + f'{key}.')
+                    result += make_plain(old_value, prefix + f'{key}.')
     return result
