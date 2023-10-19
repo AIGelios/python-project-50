@@ -1,7 +1,26 @@
+### ABOUT GENDIFF
+Welcome to the Gendiff console utility.
+Created by Anton "AI_Gelios" Kadkin.
+
+This utility shows a difference between 2 configuration files.
+It supports JSON (*.json) and YAML (*.yaml, *.yml) formats of config files.
+
+Installation:
+type 'make package-install' in your terminal and press enter
+
+Usage:
+  ~\gendiff file_path_1 file_path_2 (enter) [option, option]
+    available options:
+      -h, --help : information about utility, available commands, etc.
+      -f --format : format of files difference output. Available formats: 'stylish' (default), 'plane', 'json', 'yaml'. 
+
 ### Hexlet and CodeClimate tests and linter status:
 [![Actions Status](https://github.com/AIGelios/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AIGelios/python-project-50/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/24b07c2c9d3dbe3b4547/maintainability)](https://codeclimate.com/github/AIGelios/python-project-50/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/24b07c2c9d3dbe3b4547/test_coverage)](https://codeclimate.com/github/AIGelios/python-project-50/test_coverage)
 
-### assiinema (flat files difference and -h --help call):
-https://asciinema.org/a/3N0YBrI4uiwH1p9ENcS6G0Ifv
+### HOW IT WORKS: i'll show you in assiinema...:
+https://asciinema.org/a/sGhaQTBPSV6yOJZHhth9ZIbhs
+
+
+
