@@ -17,6 +17,8 @@ nested_yaml_1 = 'tests/fixtures/nested1.yml'
 nested_yaml_2 = 'tests/fixtures/nested2.yaml'
 dif_nes1_nes2_stylish = 'tests/fixtures/dif_nes1_nes2_stylish.txt'
 dif_nes1_nes2_plain = 'tests/fixtures/dif_nes1_nes2_plain.txt'
+dif_nes1_nes2_json = 'tests/fixtures/dif_nes1_nes2.json'
+dif_nes1_nes2_yaml = 'tests/fixtures/dif_nes1_nes2.yml'
 
 
 # generate_diff function test
@@ -41,6 +43,16 @@ def test_generate_diff():
         dif = file.read()
     assert generate_diff(nested_yaml_1, nested_json_2, 'plain') == dif
 
+    # nested json and yaml test (json output):
+    with open(dif_nes1_nes2_json) as file:
+        dif = file.read()
+    assert generate_diff(nested_json_1, nested_yaml_2, 'json') == dif
+
+    # nested json and yaml test (json output):
+    with open(dif_nes1_nes2_yaml) as file:
+        dif = file.read()
+    assert generate_diff(nested_json_1, nested_yaml_2, 'yaml') == dif
+
 
 # main command line test
 def test_cli():
@@ -64,16 +76,30 @@ def test_cli():
                            '-f', 'stylish'], universal_newlines=True)
     assert output == sample
 
-    # nested json files output test
+    # nested json files output test (default 'stylish' format)
     with open(dif_nes1_nes2_stylish) as file:
         sample = file.read() + '\n'
     output = check_output(['gendiff', nested_json_1, nested_json_2],
                           universal_newlines=True)
     assert output == sample
 
-    # nested json files output test
+    # nested json files output test ('plain' format)
     with open(dif_nes1_nes2_plain) as file:
         sample = file.read() + '\n'
-    output = check_output(['gendiff', '-f', 'plain', nested_json_1, 
+    output = check_output(['gendiff', '-f', 'plain', nested_json_1,
+                           nested_json_2], universal_newlines=True)
+    assert output == sample
+
+    # nested json files output test ('json' format)
+    with open(dif_nes1_nes2_json) as file:
+        sample = file.read() + '\n'
+    output = check_output(['gendiff', '-f', 'json', nested_json_1,
+                           nested_json_2], universal_newlines=True)
+    assert output == sample
+
+    # nested json files output test ('yaml' format)
+    with open(dif_nes1_nes2_yaml) as file:
+        sample = file.read() + '\n'
+    output = check_output(['gendiff', '-f', 'yaml', nested_json_1,
                            nested_json_2], universal_newlines=True)
     assert output == sample

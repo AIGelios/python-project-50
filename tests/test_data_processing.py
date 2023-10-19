@@ -2,6 +2,7 @@ from gendiff.data_processing import dict_diff
 
 
 no_value = {None}
+
 flat_dict_1 = {'a': None, 'b': True, 'aa': 1, 'd': 1.5}
 flat_dict_2 = {'a': None, 'c': 'xyz', 'd': 1.5, 'b': False}
 flat_diff = [{'key': 'a', 'old_value': None, 'new_value': None},

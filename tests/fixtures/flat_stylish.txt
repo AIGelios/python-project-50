@@ -1,8 +1,0 @@
-{
-    a: null
-  - aa: 1
-  - b: true
-  + b: false
-  + c: xyz
-    d: 1.5
-}
