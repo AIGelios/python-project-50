@@ -20,6 +20,7 @@ Usage:
 [![Test Coverage](https://api.codeclimate.com/v1/badges/24b07c2c9d3dbe3b4547/test_coverage)](https://codeclimate.com/github/AIGelios/python-project-50/test_coverage)
 
 ### HOW IT WORKS: i'll show you in assiinema...:
+[![asciicast](https://asciinema.org/a/sGhaQTBPSV6yOJZHhth9ZIbhs.svg)](https://asciinema.org/a/sGhaQTBPSV6yOJZHhth9ZIbhs)
 https://asciinema.org/a/sGhaQTBPSV6yOJZHhth9ZIbhs
 
 
