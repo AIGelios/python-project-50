@@ -5,14 +5,18 @@ Created by Anton "AI_Gelios" Kadkin.
 This utility shows a difference between 2 configuration files.
 It supports JSON (*.json) and YAML (*.yaml, *.yml) formats of config files.
 
-Installation:
-type 'make package-install' in your terminal and press enter
+### Installation:
+1. Clone the repository with command: git clone
+2. choose a working directory with command cd python-project-50/
+3. type 'make package-install' in your terminal and press enter
 
-Usage:
-  ~\gendiff file_path_1 file_path_2 (enter) [option, option]
-    available options:
-      -h, --help : information about utility, available commands, etc.
-      -f --format : format of files difference output. Available formats: 'stylish' (default), 'plane', 'json', 'yaml'. 
+### Usage:
+Type in your terminal:
+gendiff file_path_1 file_path_2 (enter) [--option]
+
+available options:
+-h, --help : information about utility, available commands, etc.
+-f --format : format of files difference output. Available formats: 'stylish' (default), 'plane', 'json', 'yaml'. 
 
 ### Hexlet and CodeClimate tests and linter status:
 [![Actions Status](https://github.com/AIGelios/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AIGelios/python-project-50/actions)
