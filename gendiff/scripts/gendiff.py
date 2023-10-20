@@ -1,10 +1,13 @@
 from argparse import ArgumentParser
-from gendiff.file_parsing import get_data
+
+from gendiff.file_parsing import get_data_from_file
+
 from gendiff.data_processing import dict_diff
+
 from gendiff.output_formats.stylish import make_stylish
 from gendiff.output_formats.plain import make_plain
-from gendiff.output_formats.json import make_json
-from gendiff.output_formats.yaml import make_yaml
+from gendiff.output_formats.json_output import make_json
+from gendiff.output_formats.yaml_output import make_yaml
 
 
 def get_arguments():
@@ -26,8 +29,8 @@ def generate_diff(path_1, path_2, format='stylish'):
                    }.get(format)
     if make_output is None:
         raise Exception('ERROR: Unknown output format')
-    data_1 = get_data(path_1)
-    data_2 = get_data(path_2)
+    data_1 = get_data_from_file(path_1)
+    data_2 = get_data_from_file(path_2)
     diff = dict_diff(data_1, data_2)
     return make_output(diff).rstrip()
 

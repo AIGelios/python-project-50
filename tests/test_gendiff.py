@@ -1,4 +1,4 @@
-from gendiff.scripts.gendiff import generate_diff
+from gendiff import generate_diff
 from subprocess import check_output
 
 

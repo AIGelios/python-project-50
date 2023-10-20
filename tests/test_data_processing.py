@@ -1,15 +1,15 @@
-from gendiff.data_processing import dict_diff
+from gendiff.data_processing import dict_diff, NO_ITEM
 
-
-no_value = {None}
 
 flat_dict_1 = {'a': None, 'b': True, 'aa': 1, 'd': 1.5}
 flat_dict_2 = {'a': None, 'c': 'xyz', 'd': 1.5, 'b': False}
-flat_diff = [{'key': 'a', 'old_value': None, 'new_value': None},
-            {'key': 'aa', 'old_value': 1, 'new_value': no_value},
-            {'key': 'b', 'old_value': True, 'new_value': False},
-            {'key': 'c', 'old_value': no_value, 'new_value': 'xyz'},
-            {'key': 'd', 'old_value': 1.5, 'new_value': 1.5}]
+flat_diff = [
+    {'key': 'a', 'old_value': None, 'new_value': None},
+    {'key': 'aa', 'old_value': 1, 'new_value': NO_ITEM},
+    {'key': 'b', 'old_value': True, 'new_value': False},
+    {'key': 'c', 'old_value': NO_ITEM, 'new_value': 'xyz'},
+    {'key': 'd', 'old_value': 1.5, 'new_value': 1.5}
+    ]
 
 nested_dict_1 = {'a': {'b': 1, 'c': True}, 'd': 'no'}
 nested_dict_2 = {'a': {'b': 2, 'c': False}, 'd': 'yes'}

@@ -1,16 +1,20 @@
-from gendiff.file_parsing import get_data
+from gendiff.file_parsing import get_data_from_file as get_data
 
 
 def test_get_data_from_file():
 
-    flat_data_1 = {'host': 'hexlet.io',
-              'timeout': 50,
-              'proxy': "123.234.53.22",
-              'follow': False}
+    flat_data_1 = {
+        'host': 'hexlet.io',
+        'timeout': 50,
+        'proxy': "123.234.53.22",
+        'follow': False
+        }
 
-    flat_data_2 = {'timeout': 20,
-                   'verbose': True,
-                   'host': 'hexlet.io'}
+    flat_data_2 = {
+        'timeout': 20,
+        'verbose': True,
+        'host': 'hexlet.io'
+        }
 
     path_1 = 'tests/fixtures/flat1.json'
     path_2 = 'tests/fixtures/flat2.json'
@@ -22,5 +26,5 @@ def test_get_data_from_file():
     assert get_data(path_2) == get_data(path_4) == flat_data_2
     try:
         get_data(path_5)
-    except:
+    except Exception:
         print('unsupported file test passed')
