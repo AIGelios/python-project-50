@@ -18,11 +18,11 @@ nested_diff = [
      'old_value': [
          {'key': 'b', 'old_value': 1, 'new_value': 2},
          {'key': 'c', 'old_value': True, 'new_value': False},
-         ],
+        ],
      'new_value': [
          {'key': 'b', 'old_value': 1, 'new_value': 2},
          {'key': 'c', 'old_value': True, 'new_value': False},
-         ]
+        ]
      },
     {'key': 'd',
      'old_value': 'no',

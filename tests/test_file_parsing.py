@@ -8,13 +8,13 @@ def test_get_data_from_file():
         'timeout': 50,
         'proxy': "123.234.53.22",
         'follow': False
-        }
+    }
 
     flat_data_2 = {
         'timeout': 20,
         'verbose': True,
         'host': 'hexlet.io'
-        }
+    }
 
     path_1 = 'tests/fixtures/flat1.json'
     path_2 = 'tests/fixtures/flat2.json'
