@@ -1,4 +1,4 @@
-from gendiff import yaml
+import yaml
 import json
 
 

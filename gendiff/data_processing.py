@@ -1,11 +1,14 @@
+from typing import Any
+
+
 NO_ITEM = {None}
 
 
-def is_dict(data):
+def is_dict(data: Any) -> bool:
     return isinstance(data, dict)
 
 
-def check_values(value1, value2):
+def check_values(value1: Any, value2: Any) -> tuple:
     if is_dict(value1) and is_dict(value2):
         return (dict_diff(value1, value2), dict_diff(value1, value2))
     elif is_dict(value1):
@@ -13,10 +16,10 @@ def check_values(value1, value2):
     elif is_dict(value2):
         return (value1, dict_diff(value2))
     else:
-        return value1, value2
+        return (value1, value2)
 
 
-def value_status(entry):
+def value_status(entry: dict) -> str:
     old_value = entry['old_value']
     new_value = entry['new_value']
     if old_value == new_value:
@@ -29,17 +32,18 @@ def value_status(entry):
         return 'updated'
 
 
-def dict_diff(old_dict, new_dict={}):
+def dict_diff(old_dict: dict, new_dict: dict = {}) -> list:
     new_dict = new_dict if new_dict else old_dict
     result = []
     for key in sorted(old_dict | new_dict):
         old_value = old_dict.get(key, NO_ITEM)
         new_value = new_dict.get(key, NO_ITEM)
         old_value, new_value = check_values(old_value, new_value)
-        entry = {'key': key,
-                 'old_value': old_value,
-                 'new_value': new_value,
-                 }
+        entry = {
+            'key': key,
+            'old_value': old_value,
+            'new_value': new_value,
+        }
         result.append(entry)
     return result
 

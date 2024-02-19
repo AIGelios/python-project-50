@@ -1,4 +1,4 @@
-from json import dumps as dump_json
+import json
 from gendiff.data_processing import value_status
 
 
@@ -32,4 +32,4 @@ def make_data_for_dump(dict_difference):
 
 
 def make_json(data):
-    return dump_json(make_data_for_dump(data), indent=2)
+    return json.dumps(make_data_for_dump(data), indent=2)
