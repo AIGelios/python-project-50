@@ -1,4 +1,4 @@
-from gendiff.data_processing import dict_diff, NO_ITEM
+from gendiff.data_processing import get_dict_diff, NO_ITEM
 
 
 flat_dict_1 = {'a': None, 'b': True, 'aa': 1, 'd': 1.5}
@@ -14,19 +14,25 @@ flat_diff = [
 nested_dict_1 = {'a': {'b': 1, 'c': True}, 'd': 'no'}
 nested_dict_2 = {'a': {'b': 2, 'c': False}, 'd': 'yes'}
 nested_diff = [
-    {'key': 'a',
-     'old_value': [
-         {'key': 'b', 'old_value': 1, 'new_value': 2},
-         {'key': 'c', 'old_value': True, 'new_value': False}],
-     'new_value': [
-         {'key': 'b', 'old_value': 1, 'new_value': 2},
-         {'key': 'c', 'old_value': True, 'new_value': False}]},
-    {'key': 'd',
-     'old_value': 'no',
-     'new_value': 'yes'},
+    {
+        'key': 'a',
+        'old_value': [
+            {'key': 'b', 'old_value': 1, 'new_value': 2},
+            {'key': 'c', 'old_value': True, 'new_value': False},
+        ],
+        'new_value': [
+            {'key': 'b', 'old_value': 1, 'new_value': 2},
+            {'key': 'c', 'old_value': True, 'new_value': False},
+        ],
+    },
+    {
+        'key': 'd',
+        'old_value': 'no',
+        'new_value': 'yes',
+    },
 ]
 
 
 def test_dict_diff():
-    assert dict_diff(flat_dict_1, flat_dict_2) == flat_diff
-    assert dict_diff(nested_dict_1, nested_dict_2) == nested_diff
+    assert get_dict_diff(flat_dict_1, flat_dict_2) == flat_diff
+    assert get_dict_diff(nested_dict_1, nested_dict_2) == nested_diff

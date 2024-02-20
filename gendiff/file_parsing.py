@@ -4,7 +4,7 @@ import json
 
 def get_data_from_file(path: str) -> dict:
     '''get file path as a string and return data from file
-    as a python dictionary object'''
+    as a dict'''
     file_type = path.lower().split('.')[-1]
     if file_type in ('yaml', 'yml'):
         get_data = yaml.safe_load

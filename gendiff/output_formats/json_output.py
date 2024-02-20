@@ -1,8 +1,9 @@
+from typing import Any
 import json
-from gendiff.data_processing import value_status
+from gendiff.data_processing import get_value_status
 
 
-def formatted(value):
+def get_formatted_value(value: Any):
     if type(value) is list:
         return make_data_for_dump(value)
     return value
@@ -11,23 +12,29 @@ def formatted(value):
 def make_data_for_dump(dict_difference):
     result = {}
     for entry in dict_difference:
-        status = value_status(entry)
+        status = get_value_status(entry)
         key = entry['key']
         old_value = entry['old_value']
         new_value = entry['new_value']
         match status:
             case 'added':
-                result |= {key: {'status': status,
-                                 'new_value': formatted(new_value)}}
+                result.update({key: {
+                    'status': status,
+                    'new_value': get_formatted_value(new_value),
+                }})
             case 'removed':
-                result |= {key: {'status': status,
-                                 'old_value': formatted(old_value)}}
+                result.update({key: {
+                    'status': status,
+                    'old_value': get_formatted_value(old_value),
+                }})
             case 'unchanged':
-                result |= {key: formatted(old_value)}
+                result.update({key: get_formatted_value(old_value)})
             case 'updated':
-                result |= {key: {'status': status,
-                                 'old_value': formatted(old_value),
-                                 'new_value': formatted(new_value)}}
+                result.update({key: {
+                    'status': status,
+                    'old_value': get_formatted_value(old_value),
+                    'new_value': get_formatted_value(new_value),
+                }})
     return result
 
 
