@@ -1,12 +1,20 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
-authors = ["ai_gelios <ai_gelios@mail.ru>"]
+description = "shows a difference between 2 configuration files (YAML or JSON)"
+authors = ["Anton 'ai_gelios' Kadkin <ai_gelios@mail.ru>"]
 readme = "README.md"
-packages = [
-  { include = "gendiff" },
-  ]
+repository = "https://github.com/AIGelios/python-project-50"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Education",
+  "Intended Audience :: End Users/Desktop",
+  "Topic :: File Formats :: JSON :: JSON Schema",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Environment :: Console",
+]
+packages = [{ include = "gendiff" }]
 
 
 [tool.poetry.dependencies]
