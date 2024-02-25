@@ -34,7 +34,7 @@ package-uninstall:
 package-reinstall:
 	python3 -m pip install --user dist/*.whl --force-reinstall
 
-update:
+full-install:
 	poetry install
 	poetry build
 	poetry publish --dry-run
