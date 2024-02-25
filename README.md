@@ -16,7 +16,7 @@ It supports JSON (*.json) and YAML (*.yaml, *.yml) formats of config files.
 ### Installation:
 1. Clone the repository with command: ```git clone git@github.com:AIGelios/python-project-50.git```
 2. Choose a working directory with command ```cd python-project-50/```
-3. Make installation with command ```make full-install```
+3. Make installation with command ```python-project-50$ make full-install```
 
 ### Usage:
 Use this command in your terminal:
@@ -36,8 +36,12 @@ Command examples:
 [![asciicast](https://asciinema.org/a/641475.svg)](https://asciinema.org/a/641475)
 
 ### Uninstallation:
-```make package-uninstall```
-and then remove the directory of thew project with ```rm -r```
+```python-project-50$ make package-uninstall```
+and then remove the directory of thew project with commands:
+```
+python-project-50$ cd ..
+$ rm -r  python-project-50 --force
+```
 
 
 
