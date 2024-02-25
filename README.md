@@ -8,6 +8,11 @@ It supports JSON (*.json) and YAML (*.yaml, *.yml) formats of config files.
 [![Maintainability](https://api.codeclimate.com/v1/badges/24b07c2c9d3dbe3b4547/maintainability)](https://codeclimate.com/github/AIGelios/python-project-50/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/24b07c2c9d3dbe3b4547/test_coverage)](https://codeclimate.com/github/AIGelios/python-project-50/test_coverage)
 
+### System requirements:
+1. Linux
+2. Python 3.10+
+3. Poetry
+
 ### Installation:
 1. Clone the repository with command: ```git clone git@github.com:AIGelios/python-project-50.git```
 2. Choose a working directory with command ```cd python-project-50/```
