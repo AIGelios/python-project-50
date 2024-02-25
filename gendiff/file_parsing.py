@@ -12,6 +12,5 @@ def get_data_from_file(path: str) -> dict:
         get_data = json.load
     else:
         raise Exception('ERROR: Unsupported file type.')
-
     with open(path) as file:
         return get_data(file)

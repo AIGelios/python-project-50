@@ -6,8 +6,11 @@ from gendiff.output_formats import (
 )
 
 
+ABOUT_APP = 'Compares two configuration files and shows a difference.'
+
+
 def get_arguments():
-    parser_info = 'Compares two configuration files and shows a difference.'
+    parser_info = ABOUT_APP
     parser = ArgumentParser(description=parser_info)
     parser.add_argument('first_file')
     parser.add_argument('second_file')
