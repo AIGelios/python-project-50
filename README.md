@@ -9,7 +9,7 @@ It supports JSON (*.json) and YAML (*.yaml, *.yml) formats of config files.
 [![Test Coverage](https://api.codeclimate.com/v1/badges/24b07c2c9d3dbe3b4547/test_coverage)](https://codeclimate.com/github/AIGelios/python-project-50/test_coverage)
 
 ### Installation:
-1. Clone the repository with command: ```git clone```
+1. Clone the repository with command: ```git clone git@github.com:AIGelios/python-project-50.git```
 2. Choose a working directory with command ```cd python-project-50/```
 3. Input command ```make package-install```
 
