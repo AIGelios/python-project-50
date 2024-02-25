@@ -5,7 +5,8 @@ It supports JSON (*.json) and YAML (*.yaml, *.yml) formats of config files.
 
 You can also use this package as python module that provides function:
 generate_diff(filepath_1, filepath_2, format)
-It takes paths of 2 yaml or json files and format of differrence output.
+It takes paths of 2 yaml or json files and format of difference output
+and returns difference report in chosen format as a string.
 Available formats: 'stylish' (default), 'plain', 'json', 'yaml'.
 
 ### Hexlet and CodeClimate tests and linter status:
