@@ -24,7 +24,13 @@ Use this command in your terminal:
 
 available options:
 -h, --help : information about utility, available commands, etc.
--f --format : format of files difference output. Available formats: 'stylish' (default), 'plane', 'json', 'yaml'. 
+-f --format : format of files difference output. Available formats: 'stylish' (default), 'plane', 'json', 'yaml'.
+
+Command examples:
+```gendiff file1.json file2.json```
+```gendiff file2.yaml file1.yml -f stylish```
+```gendiff file3.json file4.json --format plain```
+```gendiff -h```
 
 ### HOW IT WORKS: i'll show you in assiinema:
 [![asciicast](https://asciinema.org/a/641475.svg)](https://asciinema.org/a/641475)
