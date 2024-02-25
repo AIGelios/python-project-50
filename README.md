@@ -14,8 +14,8 @@ It supports JSON (*.json) and YAML (*.yaml, *.yml) formats of config files.
 3. Make installation with command ```make full-install```
 
 ### Usage:
-Type in your terminal:
-```gendiff file_path_1 file_path_2 (enter) [--option]```
+Use this command in your terminal:
+```gendiff file_path_1 file_path_2 [--option]```
 
 available options:
 -h, --help : information about utility, available commands, etc.
